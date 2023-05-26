@@ -1,0 +1,38 @@
+@startuml
+namespace main {
+    class Circle << (S,Aquamarine) >> {
+        + Radius float64
+
+        + Area() float64
+
+    }
+    class InvalidShape << (S,Aquamarine) >> {
+        + Area() int
+
+    }
+    class Rectangle << (S,Aquamarine) >> {
+        + Side float64
+
+        + Area() float64
+
+    }
+    interface Shape  {
+        + Area() float64
+
+    }
+    class controller << (S,Aquamarine) >> {
+        - model string
+
+        - create() 
+        - read() 
+
+    }
+    class main.incrementorFunc << (T, #FF7700) >>  {
+    }
+}
+
+"main.Shape" <|-- "main.Circle"
+"main.Shape" <|-- "main.Rectangle"
+
+"main.<font color=blue>func</font>(int) int" #.. "main.incrementorFunc"
+@enduml

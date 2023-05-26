@@ -1,0 +1,26 @@
+@startuml
+namespace main {
+    class DummyEnvGetter << (S,Aquamarine) >> {
+        + GetEnv(key string) string
+
+    }
+    interface EnvGetter  {
+        + GetEnv(key string) string
+
+    }
+    class LoginFeature << (S,Aquamarine) >> {
+        - envGetter EnvGetter
+
+        + Login(name string, password string) 
+
+    }
+    class OsEnvGetter << (S,Aquamarine) >> {
+        + GetEnv(key string) string
+
+    }
+}
+
+"main.EnvGetter" <|-- "main.DummyEnvGetter"
+"main.EnvGetter" <|-- "main.OsEnvGetter"
+
+@enduml
